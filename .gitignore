@@ -1,0 +1,4 @@
+.vscode/
+build/
+CMakeLists.txt.user*
+TSV_tabular_editor/
