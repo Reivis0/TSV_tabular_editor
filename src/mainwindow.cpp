@@ -1,7 +1,9 @@
-#include "include/mainwindow.h"
+#include "mainwindow.h"
 #include <QLayout>
 #include <QHBoxLayout>
 #include <QHeaderView>
+#include <QMessageBox>
+#include <QInputDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -39,6 +41,13 @@ MainWindow::MainWindow(QWidget *parent)
   initializeTable();
   this->setCentralWidget(m_table);
 
+
+  connect(m_btn1, &QPushButton::clicked, this, &MainWindow::isBtn1Clicked);
+  connect(m_btn2, &QPushButton::clicked, this, &MainWindow::isBtn2Clicked);
+  connect(m_btn3, &QPushButton::clicked, this, &MainWindow::isBtn3Clicked);
+  connect(m_btn4, &QPushButton::clicked, this, &MainWindow::isBtn4Clicked);
+  connect(m_table->horizontalHeader(), &QHeaderView::sectionDoubleClicked,
+          this, &MainWindow::isDoubleClecked);
 
 }
 
@@ -102,7 +111,42 @@ void MainWindow::initializeTable()
     m_table = new QTableView(this);
     m_table->setModel(m_tableModel);
     m_table->verticalHeader()->setVisible(false);
-    m_table->horizontalHeader()->setVisible(false);
     m_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
     //реализация
+
+}
+
+
+//Слоты
+
+void MainWindow::isBtn1Clicked()
+{
+}
+
+void MainWindow::isBtn2Clicked()
+{
+}
+
+void MainWindow::isBtn3Clicked()
+{
+}
+
+void MainWindow::isBtn4Clicked()
+{
+
+}
+QString MainWindow::isDoubleClecked()
+{
+  QInputDialog dialog;
+  dialog.setWindowTitle("Заголовок столбца");
+  dialog.setFixedSize(250,300);
+  dialog.setLabelText("Текст заголовка");
+  dialog.setTextValue("Заголовок");
+  QString enteredText;
+  if (dialog.exec() == QDialog::Accepted)
+  {
+    enteredText = dialog.textValue();
+  }
+  return enteredText;
 }
