@@ -8,6 +8,8 @@
 #include <QToolBar>
 #include <QTableView>
 #include <QStandardItemModel>
+#include <QString>
+
 
 class MainWindow : public QMainWindow
 {
@@ -16,6 +18,14 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+public slots:
+  void isBtn1Clicked();
+  void isBtn2Clicked();
+  void isBtn3Clicked();
+  void isBtn4Clicked();
+  QString isDoubleClecked();
+
 private:
   void initializeMenu();
   void initializeButtons();
