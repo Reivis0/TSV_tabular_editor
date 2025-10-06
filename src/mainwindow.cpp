@@ -47,13 +47,6 @@ MainWindow::MainWindow(QWidget *parent)
     this->setCentralWidget(m_table);
 
 
-  connect(m_btn1, &QPushButton::clicked, this, &MainWindow::isBtn1Clicked);
-  connect(m_btn2, &QPushButton::clicked, this, &MainWindow::isBtn2Clicked);
-  connect(m_btn3, &QPushButton::clicked, this, &MainWindow::isBtn3Clicked);
-  connect(m_btn4, &QPushButton::clicked, this, &MainWindow::isBtn4Clicked);
-  connect(m_table->horizontalHeader(), &QHeaderView::sectionDoubleClicked,
-          this, &MainWindow::isDoubleClecked);
-
     connect(m_btn1, &QPushButton::clicked, this, &MainWindow::isAddRow);
     connect(m_btn2, &QPushButton::clicked, this, &MainWindow::isDeleteRow);
     connect(m_btn3, &QPushButton::clicked, this, &MainWindow::isAddColumn);
@@ -128,8 +121,6 @@ void MainWindow::initializeTable()
     m_table = new QTableView(this);
     m_table->setModel(m_tableModel);
     m_table->verticalHeader()->setVisible(false);
-    m_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-
     m_table->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     m_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     m_table->horizontalHeader()->setSortIndicatorShown(true);
@@ -141,36 +132,6 @@ void MainWindow::initializeTable()
 
 //Слоты
 
-void MainWindow::isBtn1Clicked()
-{
-}
-
-void MainWindow::isBtn2Clicked()
-{
-}
-
-void MainWindow::isBtn3Clicked()
-{
-}
-
-void MainWindow::isBtn4Clicked()
-{
-
-}
-QString MainWindow::isDoubleClecked()
-{
-  QInputDialog dialog;
-  dialog.setWindowTitle("Заголовок столбца");
-  dialog.setFixedSize(250,300);
-  dialog.setLabelText("Текст заголовка");
-  dialog.setTextValue("Заголовок");
-  QString enteredText;
-  if (dialog.exec() == QDialog::Accepted)
-  {
-    enteredText = dialog.textValue();
-  }
-  return enteredText;
-}
 void MainWindow::isAddRow()
 {
     m_tableModel->insertRow(m_tableModel->rowCount());

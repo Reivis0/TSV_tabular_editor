@@ -19,12 +19,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-public slots:
-  void isBtn1Clicked();
-  void isBtn2Clicked();
-  void isBtn3Clicked();
-  void isBtn4Clicked();
-  QString isDoubleClecked();
+    public slots:
     void isAddRow();
     void isDeleteRow();
     void isAddColumn();
