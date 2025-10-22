@@ -9,13 +9,6 @@
 #include <QToolBar>
 #include <QTableView>
 
-// QT_BEGIN_NAMESPACE
-// class QPushButton;
-// class QMenu;
-// class QToolButton;
-// class QToolBar;
-// class QTableView;
-// QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
